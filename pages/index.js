@@ -53,7 +53,7 @@ export default function Home({clubs}) {
                         const club = clubs[clubId];
                         //fixed size card
                         return (
-                            <Link key={clubId} href="/[clubId]" as={`/${clubId}`}>
+                            <Link key={clubId} href="/club/[id]" as={`/club/${clubId}`}>
                                 <a className={styles.card}>
                                     <Image src={club.logo} alt={club.organization_name} width={200} height={200}/>
                                     <div className={styles.card_content}>
