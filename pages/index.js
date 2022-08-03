@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
+import Image from "next/image";
 
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 
@@ -50,12 +51,14 @@ export default function Home({clubs}) {
                 <div className={styles.grid}>
                     {Object.keys(clubs).map(clubId => {
                         const club = clubs[clubId];
+                        //fixed size card
                         return (
-                            <Link key={clubId} href="/club/[id]" as={`/club/${clubId}`}>
-                                <a>
-                                    <div className={styles.card}>
-                                        <h2>{club.organization_name}</h2>
-                                        <img src={club.logo}/>
+                            <Link key={clubId} href="/[clubId]" as={`/${clubId}`}>
+                                <a className={styles.card}>
+                                    <Image src={club.logo} alt={club.organization_name} width={200} height={200}/>
+                                    <div className={styles.card_content}>
+                                        <h3>{club.organization_name}</h3>
+                                        <p>{club.vision}</p>
                                     </div>
                                 </a>
                             </Link>
