@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Link from "next/link";
 
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 
@@ -50,15 +51,14 @@ export default function Home({clubs}) {
                     {Object.keys(clubs).map(clubId => {
                         const club = clubs[clubId];
                         return (
-                        <a key={club.id} href={`/club/${club.id}`} className={styles.card}>
-                            <h2>{club.organization_name}</h2>
-                            <img src={club.logo}/>
-                            <p>{club.schedule}</p>
-                            <p>{club.vision}</p>
-                            <p>{club.mission}</p>
-                            <p>{club.work_program}</p>
-                            <p>{club.instagram_account}</p>
-                        </a>
+                            <Link key={clubId} href="/club/[id]" as={`/club/${clubId}`}>
+                                <a>
+                                    <div className={styles.card}>
+                                        <h2>{club.organization_name}</h2>
+                                        <img src={club.logo}/>
+                                    </div>
+                                </a>
+                            </Link>
                         )
                     })}
                 </div>
