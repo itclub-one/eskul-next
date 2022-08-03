@@ -20,12 +20,12 @@ jobs:
           node-version: '14.x'
 
       - name: Installing my packages
-        run: npm ci
+        run: yarn install
 
       - name: Build my App
         run: npm run build && npm run export && touch ./out/.nojekyll
 
-      - name: Deploy 
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
