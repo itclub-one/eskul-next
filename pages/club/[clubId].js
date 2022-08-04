@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import {useRouter} from "next/router";
+import {TextareaAutosize, TextField} from "@mui/material";
 
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 export async function getStaticProps({ params }) {
@@ -58,7 +59,7 @@ export default function ClubId({ club }) {
                 <link rel="shortcut icon" href={club.logo} />
                 <meta property="og:title" content='Eskul - ${club.organization_name}'/>
                 <meta property="og:description" content={ club.organization_name }/>
-                <meta property="og:image" content={getLink('/favicon.ico')}/>
+                <meta property="og:image" content={club.logo}/>
                 <meta property="og:url" content={getLink('/')}/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="ESKUL"/>
@@ -73,6 +74,14 @@ export default function ClubId({ club }) {
                 <p>Vice Chairman Name: { club.vice_chairman_name }</p>
                 <p>Schedule: { club.schedule }</p>
                 <p>Instagram Account: { club.instagram_account }</p>
+                <div>
+                    <h2>Vision</h2>
+                    { club.vision.split('\n').map((line, index) => <p key={index}>{line}</p>) }
+                </div>
+                <div>
+                    <h2>Mission</h2>
+                    { club.mission.split('\n').map((line, index) => <p key={index}>{line}</p>) }
+                </div>
             </div>
         </div>
     )

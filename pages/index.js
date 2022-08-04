@@ -75,7 +75,12 @@ export default function Home({clubs}) {
                                                 {club.organization_name}
                                             </Typography>
                                             <Typography variant="body2" color="textSecondary" component="p">
-                                                {club.vision}
+                                                {club.vision.split('\n').map((line, index) => (
+                                                    <span key={index}>
+                                                        {line}
+                                                        <br/>
+                                                    </span>
+                                                ))}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
