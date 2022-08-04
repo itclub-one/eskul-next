@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import {useRouter} from "next/router";
 
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 export async function getStaticProps({ params }) {
@@ -48,11 +49,19 @@ export async function getStaticPaths() {
 }
 
 export default function ClubId({ club }) {
+    const router = useRouter();
+    const getLink = (path) => `${router.basePath}${path}`;
     return (
         <div>
             <Head>
                 <title>{ club.organization_name }</title>
                 <link rel="shortcut icon" href={club.logo} />
+                <meta property="og:title" content='Eskul - ${club.organization_name}'/>
+                <meta property="og:description" content={ club.organization_name }/>
+                <meta property="og:image" content={getLink('/favicon.ico')}/>
+                <meta property="og:url" content={getLink('/')}/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:site_name" content="ESKUL"/>
             </Head>
             <center>
             <Image src={club.logo} alt={club.organization_name} width="100" height="100" />
