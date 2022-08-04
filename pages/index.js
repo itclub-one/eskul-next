@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 
@@ -33,12 +34,14 @@ export async function getStaticProps() {
 }
 
 export default function Home({clubs}) {
+    const router = useRouter();
+    const getLink = (path) => `${router.basePath}${path}`;
     return (
         <div className={styles.container}>
             <Head>
                 <title>ESKUL</title>
                 <meta name="description" content="ESKUL"/>
-                <link rel="shortcut icon" href="/favicon.ico"/>
+                <link rel="shortcut icon" href={getLink('/favicon.ico')} />
             </Head>
             <main className={styles.main}>
                 <h1 className={styles.title}>
