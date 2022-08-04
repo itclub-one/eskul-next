@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import Link from "next/link";
-import Image from "next/image";
 
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 
@@ -48,23 +48,34 @@ export default function Home({clubs}) {
                     ESKUL is a platform to connect students with their teachers.
                 </p>
 
-                <div className={styles.grid}>
-                    {Object.keys(clubs).map(clubId => {
-                        const club = clubs[clubId];
-                        //fixed size card
-                        return (
-                            <Link key={clubId} href="/club/[id]" as={`/club/${clubId}`}>
-                                <a className={styles.card}>
-                                    <Image src={club.logo} alt={club.organization_name} width={200} height={200}/>
-                                    <div className={styles.card_content}>
-                                        <h3>{club.organization_name}</h3>
-                                        <p>{club.vision}</p>
-                                    </div>
-                                </a>
+                <Container maxWidth="lg">
+                    <Grid container spacing={3}>
+                        {Object.values(clubs).map(club => (
+                            <Link href={`/club/${club.id}`} key={club.id}>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <Card>
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            alt={club.organization_name}
+                                            image={club.logo}
+                                            title={club.organization_name}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                {club.organization_name}
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                {club.vision}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
                             </Link>
-                        )
-                    })}
-                </div>
+                        ))}
+                    </Grid>
+                </Container>
             </main>
             <footer className={styles.footer}>
                 <a
