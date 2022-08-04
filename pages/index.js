@@ -38,7 +38,7 @@ export default function Home({clubs}) {
             <Head>
                 <title>ESKUL</title>
                 <meta name="description" content="ESKUL"/>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="shortcut icon" href="/favicon.ico"/>
             </Head>
             <main className={styles.main}>
                 <h1 className={styles.title}>
