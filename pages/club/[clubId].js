@@ -1,3 +1,6 @@
+import Head from "next/head";
+import Image from "next/image";
+
 const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 export async function getStaticProps({ params }) {
     const clubs = await fetch(dataURL).then(res => res.json());
@@ -47,7 +50,13 @@ export async function getStaticPaths() {
 export default function ClubId({ club }) {
     return (
         <div>
-            <img src={club.logo} alt="" />
+            <Head>
+                <title>{ club.organization_name }</title>
+                <link rel="shortcut icon" href={club.logo} />
+            </Head>
+            <center>
+            <Image src={club.logo} alt={club.organization_name} width="100" height="100" />
+            </center>
             <div>
                 <h1>{ club.organization_name }</h1>
                 <p>Coach Name: { club.coach_name }</p>
