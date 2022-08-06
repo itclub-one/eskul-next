@@ -54,7 +54,7 @@ export default function ClubId({ club }) {
             <Head>
                 <title>{ club.organization_name }</title>
                 <link rel="shortcut icon" href={club.logo} />
-                <meta property="og:title" content='Eskul - ${club.organization_name}'/>
+                <meta property="og:title" content={"Eskul - " + club.organization_name}/>
                 <meta property="og:description" content={ club.organization_name }/>
                 <meta property="og:image" content={club.logo}/>
                 <meta property="og:url" content={getLink('/')}/>
