@@ -53,10 +53,10 @@ export default function ClubId({ club }) {
                 <title>{ club.organization_name }</title>
                 <link rel="shortcut icon" href={club.logo} />
                 <meta property="og:title" content={"Eskul - " + club.organization_name}/>
-                <meta property="og:description" content={ club.organization_name }/>
+                <meta property="og:site_name" content="eskul-next"/>
+                <meta property="og:description" content={ club.vision }/>
+                <meta property="og:type" content="profile"/>
                 <meta property="og:image" content={club.logo}/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:site_name" content="ESKUL"/>
             </Head>
             <center>
             <Image src={club.logo} alt={club.organization_name} width="100" height="100" />

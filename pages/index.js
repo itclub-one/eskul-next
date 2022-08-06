@@ -39,13 +39,12 @@ export default function Home({clubs}) {
             <Head>
                 <title>ESKUL</title>
                 <meta name="description" content="ESKUL"/>
-                <link rel="shortcut icon" href={getLink('/favicon.ico')} />
-                <meta property="og:title" content="ESKUL"/>
-                <meta property="og:description" content="ESKUL"/>
-                <meta property="og:image" content={getLink('/favicon.ico')}/>
-                <meta property="og:url" content={getLink('/')}/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:site_name" content="ESKUL"/>
+                <link rel="shortcut icon" href="https://github.com/itclub-one/web-eslul/raw/master/img/logo/smeaa.png" />
+                <meta property="og:title" content="Web Eskul SMKN 1"/>
+                <meta property="og:site_name" content="eskul-next"/>
+                <meta property="og:description" content="Description"/>
+                <meta property="og:type" content="profile"/>
+                <meta property="og:image" content="https://github.com/itclub-one/web-eslul/raw/master/img/logo/smeaa.png"/>
             </Head>
             <main className={styles.main}>
                 <h1 className={styles.title}>
