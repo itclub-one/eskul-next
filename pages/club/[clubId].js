@@ -1,11 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import {useRouter} from "next/router";
-import {TextareaAutosize, TextField} from "@mui/material";
+import clubs from "../../data_eskul.json";
 
-const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
 export async function getStaticProps({ params }) {
-    const clubs = await fetch(dataURL).then(res => res.json());
     /**
      * {
      *     "it-club": {
@@ -36,7 +34,6 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const clubs = await fetch(dataURL).then(res => res.json());
     return {
         paths: Object.keys(clubs).map(clubId => {
             return {

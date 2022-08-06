@@ -3,11 +3,9 @@ import styles from '../styles/Home.module.css'
 import {Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import Link from "next/link";
 import {useRouter} from "next/router";
-
-const dataURL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/itclub-one/list-eskul/main/data_eskul.json';
+import clubs from "../data_eskul.json";
 
 export async function getStaticProps() {
-    const clubs = await fetch(dataURL).then(res => res.json());
     /**
      * {
      *     "it-club": {

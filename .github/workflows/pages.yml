@@ -7,13 +7,13 @@ name: Deploy Next.js site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: [ "main" ]
+    # Ignore data/ directory as it's going to get processed by other workflow
+    paths-ignore:
+      - 'data/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  repository_dispatch:
-    branches: ["main"]
-    types: ["deployment"]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
