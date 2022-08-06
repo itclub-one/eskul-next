@@ -376,5 +376,19 @@
         "logo": "https://github.com/itclub-one/web-eslul/raw/master/img/logo/karawitan.png",
         "instagram_account": "karawitan_smkn1garut",
         "id": "karawitan"
+    },
+    "japan-club": {
+        "timestamp": "8/6/2022 10:11:22",
+        "organization_name": "Japan Club",
+        "coach_name": "",
+        "chairman_name": "fathur rohmat ady putra",
+        "vice_chairman_name": "Alifina Kayla Nur Meiza",
+        "schedule": "selasa",
+        "vision": "Menambah pengetahuan tentang kebahasaan maupun kebudayaan Jepang serta wawasan untuk  berorganisasi dan berprilaku baik di masyarakat",
+        "mission": "1.    Menambah wawasan anggota tentang dasar-dasar dari bahasa & kebudayaan Jepang\n2.    Menambah keterampilan di bidang bahasa,seni,dan sosial\n3.    Meningkatkan ikatan tali silaturahmi\n4.    Meningkatkan sikap percaya diri di depan umum\n5.    Menjaga etika dan toleransi di lingkungan masyarakat\n6.    Mewujudkan karakter bertanggung jawab dan berorganisasi\n7.    Mendukung penuh bakat yang dimiliki setiap anggota\n8.    Menjadikan individu yang mandiri dan kreatif\n9.    Membina kekompakan dan kerja sama",
+        "work_program": "-",
+        "logo": "https://github.com/itclub-one/web-eslul/raw/master/img/logo/japan.png",
+        "instagram_account": "japanclub_1garut",
+        "id": "japan-club"
     }
 }
