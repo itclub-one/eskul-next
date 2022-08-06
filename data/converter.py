@@ -66,6 +66,15 @@ def make_json(csvFilePath, jsonFilePath):
                 rows['logo'] = "https://github.com/itclub-one/web-eslul/raw/master/img/logo/" + urllib.parse.quote(
                     rows['logo'])
 
+
+            if 'instagram_account' in rows:
+                # if startswith '@' remove it
+                rows['instagram_account'] = rows['instagram_account'].lstrip('@')
+                # remove space
+                rows['instagram_account'] = rows['instagram_account'].replace(' ', '')
+                # trim
+                rows['instagram_account'] = rows['instagram_account'].strip()
+
             data[rows['id']] = rows
 
     # Open a json writer, and use the json.dumps()

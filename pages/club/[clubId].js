@@ -47,8 +47,6 @@ export async function getStaticPaths() {
 }
 
 export default function ClubId({ club }) {
-    const router = useRouter();
-    const getLink = (path) => `${router.basePath}${path}`;
     return (
         <div>
             <Head>
@@ -57,7 +55,6 @@ export default function ClubId({ club }) {
                 <meta property="og:title" content={"Eskul - " + club.organization_name}/>
                 <meta property="og:description" content={ club.organization_name }/>
                 <meta property="og:image" content={club.logo}/>
-                <meta property="og:url" content={getLink('/')}/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:site_name" content="ESKUL"/>
             </Head>
@@ -70,7 +67,7 @@ export default function ClubId({ club }) {
                 <p>Chairman Name: { club.chairman_name }</p>
                 <p>Vice Chairman Name: { club.vice_chairman_name }</p>
                 <p>Schedule: { club.schedule }</p>
-                <p>Instagram Account: { club.instagram_account }</p>
+                <p>Instagram Account: <a href={`https://www.instagram.com/${club.instagram_account}`} target="_blank" rel="noreferrer">{"@" + club.instagram_account }</a></p>
                 <div>
                     <h2>Vision</h2>
                     { club.vision.split('\n').map((line, index) => <p key={index}>{line}</p>) }
