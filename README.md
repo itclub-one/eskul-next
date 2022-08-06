@@ -2,6 +2,9 @@
 
 ## Workflow
 
+![image](https://user-images.githubusercontent.com/77704356/183228055-24a39d41-ea50-4ee7-a779-735dfdd8c0e6.png)
+
+
 ## Getting Started
 
 First, run the development server:
