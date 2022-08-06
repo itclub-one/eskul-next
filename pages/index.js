@@ -58,8 +58,9 @@ export default function Home({clubs}) {
                 <Container maxWidth="lg">
                     <Grid container spacing={3}>
                         {Object.values(clubs).map(club => (
-                            <Link href={`/club/${club.id}`} key={club.id}>
-                            <Grid item xs={12} sm={6} md={4}>
+
+                            <Grid item xs={12} sm={6} md={4} key={club.id}>
+                                <a href={getLink(`/club/${club.id}`)} >
                                 <Card>
                                     <CardActionArea>
                                         <CardMedia
@@ -83,8 +84,9 @@ export default function Home({clubs}) {
                                         </CardContent>
                                     </CardActionArea>
                                 </Card>
+                                </a>
                             </Grid>
-                            </Link>
+
                         ))}
                     </Grid>
                 </Container>
