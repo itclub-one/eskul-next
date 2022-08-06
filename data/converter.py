@@ -5,7 +5,11 @@ import json
 import os
 import re
 import urllib.parse
-
+import sys
+# Get path adjacent to this file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+csvFilePath = os.path.join(current_dir, 'data_eskul.csv')
+jsonFilePath = 'data_eskul.json' # Stored on root directory
 translateKey = {
     "Timestamp": "timestamp",
     "nama ekstrakurikuler & organisasi": "organization_name",
@@ -74,19 +78,23 @@ def make_json(csvFilePath, jsonFilePath):
 
 # Decide the two file paths according to your
 # computer system
-csvFilePath = r'data_eskul.csv'
-jsonFilePath = r'data_eskul.json'
+
+
 
 # Call the make_json function
 make_json(csvFilePath, jsonFilePath)
 
-# push to origin
-try:
-    os.system('git config user.email github-actions[bot]@users.noreply.github.com')
-    os.system('git config user.name Updater[bot]')
-    os.system('git add .')
-    os.system('git commit -m "update data"')
-    os.system('git push')
-    print("pushed")
-except:
+# Check if it's github actions
+if 'GITHUB_ACTIONS' in os.environ:
+  try:
+      os.system('git config user.email github-actions[bot]@users.noreply.github.com')
+      os.system('git config user.name Updater[bot]')
+      os.system('git add .')
+      os.system('git commit -m "update data"')
+      os.system('git push')
+      print("pushed")
+  except:
+      pass
+else:
+    print("not pushed")
     pass
