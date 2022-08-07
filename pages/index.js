@@ -3,8 +3,8 @@ import styles from '../styles/Home.module.css'
 import {Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import clubs from "../data_eskul.json";
-
+import './config.js';
+const clubs = global.config.clubs;
 export async function getStaticProps() {
     /**
      * {
@@ -37,21 +37,21 @@ export default function Home({clubs}) {
     return (
         <div className={styles.container}>
             <Head>
-                <title>ESKUL</title>
-                <meta name="description" content="ESKUL"/>
-                <link rel="shortcut icon" href="https://github.com/itclub-one/web-eslul/raw/master/img/logo/smeaa.png" />
-                <meta property="og:title" content="Web Eskul SMKN 1"/>
-                <meta property="og:site_name" content="eskul-next"/>
-                <meta property="og:description" content="Description"/>
+                <title>{ global.config.site.title }</title>
+                <meta name="description" content={global.config.site.description}/>
+                <link rel="shortcut icon" href={global.config.site.favicon} />
+                <meta property="og:title" content={global.config.site.title}/>
+                <meta property="og:site_name" content={global.config.site.site_name}/>
+                <meta property="og:description" content={global.config.site.description}/>
                 <meta property="og:type" content="profile"/>
-                <meta property="og:image" content="https://github.com/itclub-one/web-eslul/raw/master/img/logo/smeaa.png"/>
+                <meta property="og:image" content={global.config.site.favicon}/>
             </Head>
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    ESKUL
+                    { global.config.site.title }
                 </h1>
                 <p className={styles.description}>
-                    ESKUL is a platform to connect students with their teachers.
+                    { global.config.site.description }
                 </p>
 
                 <Container maxWidth="lg">

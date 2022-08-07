@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import {useRouter} from "next/router";
-import clubs from "../../data_eskul.json";
-
+import '../config.js';
+const clubs = global.config.clubs;
 export async function getStaticProps({ params }) {
     /**
      * {
@@ -52,8 +52,8 @@ export default function ClubId({ club }) {
             <Head>
                 <title>{ club.organization_name }</title>
                 <link rel="shortcut icon" href={club.logo} />
-                <meta property="og:title" content={"Eskul - " + club.organization_name}/>
-                <meta property="og:site_name" content="eskul-next"/>
+                <meta property="og:title" content={global.config.site.title + " - " + club.organization_name}/>
+                <meta property="og:site_name" content={global.config.site.site_name}/>
                 <meta property="og:description" content={ club.vision }/>
                 <meta property="og:type" content="profile"/>
                 <meta property="og:image" content={club.logo}/>
