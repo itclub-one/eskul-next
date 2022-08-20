@@ -34,8 +34,9 @@ export default function Admin({}) {
         const {app_id, client_id, client_secret, installation_id, uname} = target;
         const reader = new FileReader();
         reader.onload = function(e) {
-            console.log(e.target.result);
-            global.config.github.issue_installation_token(e.target.result).then(jwt => {
+            let contents = e.target.result;
+            console.log(contents);
+            global.config.github.issue_installation_token(contents).then(jwt => {
                 console.log(jwt);
                 sessionStorage.setItem("jwt", JSON.stringify(jwt));
                 global.config.github_jwt = jwt;

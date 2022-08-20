@@ -36,6 +36,10 @@ const config = {
             //https://github.com/octokit/auth-app.js/#installation-authentication
             const auth = createAppAuth({
                 appId: this.app_id,
+                //The private keys provided by GitHub are in PKCS#1 format
+                //but the WebCrypto API only supports PKCS#8. You need to convert it first:
+                //openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in private-key.pem -out private-key-pkcs8.key
+                // https://github.com/octokit/auth-app.js/#usage-with-octokit
                 privateKey: private_key,
                 installationId: this.installation_id,
                 clientId: this.client_id,
