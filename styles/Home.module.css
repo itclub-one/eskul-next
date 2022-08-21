@@ -127,3 +127,20 @@
     filter: invert(1);
   }
 }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+}
+
+.textarea {
+    width: fit-content;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    resize: none;
+  white-space: pre-wrap;
+}

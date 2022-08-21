@@ -1,5 +1,6 @@
 import clubs from "../data_eskul.json";
 import {createAppAuth} from '@octokit/auth-app';
+import axios from "axios";
 
 /*
 Convert a string into an ArrayBuffer
@@ -32,6 +33,14 @@ const config = {
         client_id: "",
         app_id: "",
         client_secret: "",
+        api_endpoint: "https://api.github.com",
+        content_path: "data/data_eskul.csv",
+        fetch_content_metadata: async function(){
+          return await axios.get(this.api_endpoint+ "/repos/" + this.owner + "/" + this.repo + "/contents/" + this.content_path);
+        },
+        fetch_content_data: async function(metadata){
+            return (await axios.get(metadata.data.download_url)).data;
+        },
         issue_installation_token: async function (private_key) {
             //https://github.com/octokit/auth-app.js/#installation-authentication
             const auth = createAppAuth({

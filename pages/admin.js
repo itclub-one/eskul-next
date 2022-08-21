@@ -1,29 +1,20 @@
 import Head from "next/head";
 import {useState} from "react";
+
 import './config.js';
+import {useRouter} from "next/router";
 export default function Admin({}) {
     // React States
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    // User Login info
-    const database = [
-        {
-            username: "user1",
-            password: "pass1"
-        },
-        {
-            username: "user2",
-            password: "pass2"
-        }
-    ];
-
 
 
 
     // Generate JSX code for error message
     const renderErrorMessage = (name) =>
         name === errorMessages.name && (<div className="error">{errorMessages.message}</div>);
+    const router = useRouter()
+
 
     const handleSubmit = (event) => {
         //Prevent page reload
@@ -38,10 +29,16 @@ export default function Admin({}) {
             console.log(contents);
             global.config.github.issue_installation_token(contents).then(jwt => {
                 console.log(jwt);
-                sessionStorage.setItem("jwt", JSON.stringify(jwt));
-                global.config.github_jwt = jwt;
-                global.config.github.save_to_local_storage();
+                //sessionStorage.setItem("jwt", JSON.stringify(jwt));
+                //global.config.github_jwt = jwt;
+                global.config.github.save_to_local_storage();//we know credential is valid, save for future use
                 //go to admin/dashboard
+                router.push({
+                    pathname: '/admin/dashboard',
+                    query: {
+                        jwt: jwt
+                    }
+                });
             });
         }
         reader.readAsText(uname.files[0]);
